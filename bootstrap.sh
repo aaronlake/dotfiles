@@ -10,7 +10,14 @@ function die()
 DOTFILES=$HOME/.dotfiles/
 
 # Add <strong>.old</strong> to any existing Vim file in the home directory
-for i in $DOTFILES/{.gitconfig .brew .exports .functions .gitconfig .gitignore .inputrc .osx}; do
+for i in $DOTFILES/.gitconfig \
+         $DOTFILES/.brew \
+         $DOTFILES/.exports \
+         $DOTFILES/.functions \
+         $DOTFILES/.gitconfig \
+         $DOTFILES/.gitignore \
+         $DOTFILES/.inputrc \
+         $DOTFILES/.osx; do
   if [[ ( -e $i ) || ( -h $i ) ]]; then
     echo "${i} has been renamed to ${i}.old"
     mv "${i}" "${i}.old" || die "Could not move ${i} to ${i}.old"
