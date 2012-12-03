@@ -7,7 +7,7 @@ function die()
   exit 1
 }
 
-DOTFILES=$HOME/.dotfiles/
+DOTFILES=$HOME/.dotfiles
 
 # Add <strong>.old</strong> to any existing Vim file in the home directory
 for i in $DOTFILES/.gitconfig \
