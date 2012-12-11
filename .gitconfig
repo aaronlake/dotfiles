@@ -67,7 +67,6 @@
   whitespace = fix
 
 [core]
-  editor = st -w
   excludesfile = /Users/alake/.gitignore_global
   gitproxy = gitproxy.sh
   # Use custom `.gitignore` and `.gitattributes`
