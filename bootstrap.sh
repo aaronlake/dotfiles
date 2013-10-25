@@ -18,6 +18,7 @@ for i in $HOME/.gitconfig \
          $HOME/.gitignore \
          $HOME/.inputrc \
          $HOME/.gemrc \
+         $HOME/.dircolors \
          $HOME/.osx; do
   if [[ ( -e $i ) || ( -h $i ) ]]; then
     echo "${i} has been renamed to ${i}.old"
@@ -38,6 +39,7 @@ ln -s $DOTFILES/.gitignore $HOME/.gitignore
 ln -s $DOTFILES/.inputrc $HOME/.inputrc
 ln -s $DOTFILES/.gemrc $HOME/.gemrc
 ln -s $DOTFILES/.osx $HOME/.osx
+ln -s $DOTFIlES/dircolors-solarized/dircolors.256dark $HOME/.dircolors
 
 echo "Install successfully."
 
