@@ -68,7 +68,6 @@
 
 [core]
   excludesfile = /Users/alake/.gitignore_global
-  gitproxy = gitproxy.sh
   # Use custom `.gitignore` and `.gitattributes`
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
@@ -82,7 +81,3 @@
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
-
-# Fix for broken work proxy
-[url "http://github.com/"]
-  insteadOf = git://github.com/
