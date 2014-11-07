@@ -38,6 +38,7 @@ ln -s $DOTFILES/functions $HOME/.functions
 ln -s $DOTFILES/gitignore $HOME/.gitignore
 ln -s $DOTFILES/inputrc $HOME/.inputrc
 ln -s $DOTFILES/gemrc $HOME/.gemrc
+ln -s $DOTFILES/zshrc $HOME/.zshrc
 ln -s $DOTFIlES/dircolors-solarized/dircolors.256dark $HOME/.dircolors
 
 echo "Install successfully."
