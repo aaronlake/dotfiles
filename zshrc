@@ -1,7 +1,7 @@
 ### Antigen Configuration
 
 # Load Antigen
-source ~/dotfiles/antigen.zsh
+source ~/.dotfiles/antigen.zsh
 
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
