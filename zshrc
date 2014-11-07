@@ -72,7 +72,7 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Exports
-export EDITOR="vim"
+source ~/.dotfiles/exports
 
 # aliases
 alias ..="cd .."
