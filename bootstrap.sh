@@ -31,14 +31,13 @@ git clone --recursive git://github.com/aaronlake/dotfiles.git $HOME/.dotfiles \
     || die "Could not clone the repository to ${HOME}/.dotfiles"
 
 echo "Link configuration files"
-ln -s $DOTFILES/.gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/.brew $HOME/.brew
-ln -s $DOTFILES/.exports $HOME/.exports
-ln -s $DOTFILES/.functions $HOME/.functions
-ln -s $DOTFILES/.gitignore $HOME/.gitignore
-ln -s $DOTFILES/.inputrc $HOME/.inputrc
-ln -s $DOTFILES/.gemrc $HOME/.gemrc
-ln -s $DOTFILES/.osx $HOME/.osx
+ln -s $DOTFILES/gitconfig $HOME/.gitconfig
+ln -s $DOTFILES/brew $HOME/.brew
+ln -s $DOTFILES/exports $HOME/.exports
+ln -s $DOTFILES/functions $HOME/.functions
+ln -s $DOTFILES/gitignore $HOME/.gitignore
+ln -s $DOTFILES/inputrc $HOME/.inputrc
+ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFIlES/dircolors-solarized/dircolors.256dark $HOME/.dircolors
 
 echo "Install successfully."
