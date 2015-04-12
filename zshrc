@@ -1,7 +1,7 @@
 ### Antigen Configuration
 
 # Load Antigen
-source ~/.dotfiles/antigen.zsh
+source ~/dotfiles/antigen.zsh
 
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
@@ -24,6 +24,9 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   antigen bundle gem
   antigen bundle osx
   antigen bundle sudo
+  antigen bundle node
+  antigen bundle atom
+  antigen bundle meteor
   antigen bundle rails
   antigen bundle vi-mode
   antigen bundle aws
@@ -72,8 +75,8 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Exports & Functions
-source ~/.dotfiles/exports
-source ~/.dotfiles/functions
+source ~/dotfiles/exports
+source ~/dotfiles/functions
 
 # aliases
 alias ..="cd .."
