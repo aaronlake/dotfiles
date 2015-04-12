@@ -1,52 +1,3 @@
-### Antigen Configuration
-
-# Load Antigen
-source ~/dotfiles/antigen.zsh
-
-# Load various lib files
-antigen bundle robbyrussell/oh-my-zsh lib/
-
-# Antigen Theme
-antigen theme jdavis/zsh-files themes/jdavis
-
-# Antigen bundles
-antigen bundle git
-antigen bundle tmuxinator
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle heroku
-antigen bundle command-not-found
-antigen bundle rbenv
-
-# Os specific plugins
-if [[ $CURRENT_OS == 'OS X' ]]; then
-  antigen bundle brew
-  antigen bundle brew-cask
-  antigen bundle gem
-  antigen bundle osx
-  antigen bundle sudo
-  antigen bundle node
-  antigen bundle atom
-  antigen bundle meteor
-  antigen bundle rails
-  antigen bundle vi-mode
-  antigen bundle aws
-  antigen bundle ruby
-elif [[ $CURRENT_OS == 'Linux' ]]; then
-
-  if [[ $DISTRO == 'CentOS' ]]; then
-    antigen bundle centos
-  fi
-elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-  antigen bundle cygwin
-fi
-
-# Fish-like bundles
-antigen bundle zsh-users/fizsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle tarruda/zsh-autosuggestions
-
-
 ### OS Detection
 UNAME=`uname`
 
@@ -68,6 +19,68 @@ else
   fi
 fi
 
+### Antigen Configuration
+
+# Load Antigen
+source ~/dotfiles/antigen.zsh
+
+# PATH Settings
+PATH=/opt/boxen/homebrew/bin:$PATH
+
+# Load various lib files
+antigen bundle robbyrussell/oh-my-zsh lib/
+
+# Antigen Theme
+antigen theme jdavis/zsh-files themes/jdavis
+
+# Antigen bundles
+antigen bundle git
+antigen bundle tmuxinator
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle heroku
+antigen bundle command-not-found
+antigen bundle rbenv
+
+# Os specific plugins
+if [[ $CURRENT_OS == 'OS X' ]]; then
+antigen bundles <<EOBUNDLES
+  brew
+  brew-cask
+  gem
+  osx
+  sudo
+  node
+  atom
+  meteor
+  rails
+  vi-mode
+  aws
+  ruby
+  nvm
+  npm
+  vagrant
+    
+  unixorn/git-extra-commands
+  unixorn/autoupdate-antigen.zshplugin
+EOBUNDLES
+
+  PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+elif [[ $CURRENT_OS == 'Linux' ]]; then
+
+  if [[ $DISTRO == 'CentOS' ]]; then
+    antigen bundle centos
+  fi
+elif [[ $CURRENT_OS == 'Cygwin' ]]; then
+  antigen bundle cygwin
+fi
+
+# Fish-like bundles
+antigen bundle zsh-users/fizsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle tarruda/zsh-autosuggestions
+
 
 # Ensure languages are set
 export LANG=en_US.UTF-8
@@ -78,15 +91,8 @@ export LC_ALL=en_US.UTF-8
 source ~/dotfiles/exports
 source ~/dotfiles/functions
 
-# aliases
-alias ..="cd .."
-alias ...="cd ../.."
-alias ...="cd ../../.."
-alias ....="cd ../../../.."
-alias s="git status -s"
-alias co="git checkout"
-
 # Command line helpers
 if [[ -d "/usr/local/share/zsh-completions"  ]]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
+
