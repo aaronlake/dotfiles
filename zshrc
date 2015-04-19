@@ -188,3 +188,6 @@ alias tmux='tmux -2'
     # $MOTD
   # fi
 # fi
+
+# https://github.com/nvbn/thefuck
+alias fuck='$(thefuck $(fc -ln -1))'
