@@ -22,10 +22,10 @@ fi
 ### Antigen Configuration
 
 # Load Antigen
-source ~/dotfiles/antigen.zsh
+source ~/.dotfiles/antigen.zsh
 
 # PATH Settings
-PATH=/opt/boxen/homebrew/bin:$PATH
+PATH=/opt/boxen/homebrew/bin:/User/alake/bin:$PATH
 
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
@@ -95,8 +95,8 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Exports & Functions
-source ~/dotfiles/exports
-source ~/dotfiles/functions
+source ~/.dotfiles/exports
+source ~/.dotfiles/functions
 
 # Command line helpers
 if [[ -d "/usr/local/share/zsh-completions"  ]]; then
