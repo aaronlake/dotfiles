@@ -171,6 +171,7 @@ if [ -z "$SCREEN_COLORS" ] ; then
 fi
 
 alias tmux='tmux -2'
+alias ls='gls --color=always'
 
 # TMUX - Autostart
 # if [[ -z $TMUX ]]; then
