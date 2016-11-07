@@ -14,3 +14,8 @@ export HISTCONTROL=ignoredups
 
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+# HTTPSTAT
+export HTTPSTAT_SHOW_IP=false
+export HTTPSTAT_SHOW_SPEED=true
+export HTTPSTAT_SAVE_BODY=false

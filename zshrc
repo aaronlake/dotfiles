@@ -40,6 +40,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle heroku
 antigen bundle command-not-found
 antigen bundle rbenv
+antigen bundle psprint/zsh-cmd-architect
+antigen bundle psprint/zsh-navigation-tools
 
 # Os specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
@@ -50,7 +52,6 @@ antigen bundles <<EOBUNDLES
   osx
   sudo
   node
-  atom
   meteor
   rails
   vi-mode
@@ -192,3 +193,6 @@ alias ls='gls --color=always'
 
 # https://github.com/nvbn/thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
+
+export NVM_DIR="/Users/alake/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
