@@ -42,6 +42,7 @@ antigen bundle command-not-found
 antigen bundle rbenv
 antigen bundle psprint/zsh-cmd-architect
 antigen bundle psprint/zsh-navigation-tools
+antigen bundle edkolev/tmuxline.vim
 
 # Os specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
