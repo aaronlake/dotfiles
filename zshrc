@@ -25,18 +25,18 @@ fi
 source ~/.dotfiles/antigen.zsh
 
 # PATH Settings
-PATH=/opt/boxen/homebrew/bin:/User/alake/bin:$PATH
+PATH=/opt/boxen/homebrew/bin:/User/alake/bin:$PATH:/Users/alake/.cargo/bin:/usr/local/opt/go/libexec/bin
 
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
 
 # Antigen Theme
-antigen theme blinks
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 # Antigen bundles
 antigen bundle git
 antigen bundle tmuxinator
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle heroku
 antigen bundle command-not-found
 antigen bundle rbenv
@@ -44,11 +44,11 @@ antigen bundle psprint/zsh-cmd-architect
 antigen bundle psprint/zsh-navigation-tools
 antigen bundle edkolev/tmuxline.vim
 
+
 # Os specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
 antigen bundles <<EOBUNDLES
   brew
-  brew-cask
   gem
   osx
   sudo
@@ -197,3 +197,9 @@ alias fuck='$(thefuck $(fc -ln -1))'
 
 export NVM_DIR="/Users/alake/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# history management
+setopt inc_append_history
+setopt share_history
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
