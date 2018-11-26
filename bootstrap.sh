@@ -11,7 +11,6 @@ DOTFILES=$HOME/.dotfiles
 
 # Add <strong>.old</strong> to any existing Vim file in the home directory
 for i in $HOME/.gitconfig \
-         $HOME/.brew \
          $HOME/.exports \
          $HOME/.functions \
          $HOME/.gitconfig \
@@ -30,9 +29,11 @@ done
 git clone --recursive git://github.com/aaronlake/dotfiles.git $HOME/.dotfiles \
     || die "Could not clone the repository to ${HOME}/.dotfiles"
 
+echo "Installing antibody"
+curl -sL git.io/antibody | sh -s
+
 echo "Link configuration files"
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/brew $HOME/.brew
 ln -s $DOTFILES/exports $HOME/.exports
 ln -s $DOTFILES/functions $HOME/.functions
 ln -s $DOTFILES/gitignore $HOME/.gitignore

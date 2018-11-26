@@ -1,0 +1,2 @@
+robbyrussell/oh-my-zsh path:plugins/brew/brew.plugin.zsh
+robbyrussell/oh-my-zsh path:plugins/osx/osx.plugin.zsh

@@ -19,76 +19,31 @@ else
   fi
 fi
 
-### Antigen Configuration
-
-# Load Antigen
-source ~/.dotfiles/antigen.zsh
-
 # PATH Settings
 PATH=/opt/boxen/homebrew/bin:/User/alake/bin:$PATH:/Users/alake/.cargo/bin:/usr/local/opt/go/libexec/bin
 
-# Load various lib files
-antigen bundle robbyrussell/oh-my-zsh lib/
+### Antibody Configuration
 
-# Antigen Theme
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+# Load Antigen
+source <(antibody init)
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
-# Antigen bundles
-antigen bundle git
-antigen bundle tmuxinator
-antigen bundle heroku
-antigen bundle command-not-found
-antigen bundle rbenv
-antigen bundle psprint/zsh-cmd-architect
-antigen bundle psprint/zsh-navigation-tools
-antigen bundle edkolev/tmuxline.vim
+antibody bundle < ~/.dotfiles/zsh_plugins.txt
 
-
-# Os specific plugins
+# OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
-antigen bundles <<EOBUNDLES
-  brew
-  gem
-  osx
-  sudo
-  node
-  meteor
-  rails
-  vi-mode
-  aws
-  ruby
-  nvm
-  npm
-  vagrant
-
-  unixorn/git-extra-commands
-  unixorn/autoupdate-antigen.zshplugin
-
-  # bd implementation in zsh
-  Tarrasch/zsh-bd
-
-  # Base-16 iTerm2
-  chriskempson/base16-iterm2
-
-EOBUNDLES
-
+  antibody bundle < ~/.dotfiles/zsh_plugins_osx.txt
   PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-
 elif [[ $CURRENT_OS == 'Linux' ]]; then
 
   if [[ $DISTRO == 'CentOS' ]]; then
-    antigen bundle centos
+    antibody bundle centos
   fi
 elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-  antigen bundle cygwin
+  antibody bundle cygwin
 fi
 
-# Fish-like bundles
-antigen bundle zsh-users/fizsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle tarruda/zsh-autosuggestions
+DISABLE_AUTO_UPDATE=true
 
 
 # Ensure languages are set
@@ -174,23 +129,6 @@ fi
 
 alias tmux='tmux -2'
 alias ls='gls --color=always'
-
-# TMUX - Autostart
-# if [[ -z $TMUX ]]; then
-  # # Attempt to discover a detached session and attach it, else create a new session
-  # CURRENT_USER=$(whoami)
-  # if tmux has-session -t $CURRENT_USER 2>/dev/null; then
-    # tmux -2 attach-session -t $CURRENT_USER
-  # else
-    # tmux -2 new-session -s $CURRENT_USER
-  # fi
-# else
-  # # If inside tmux session then print MOTD
-  # MOTD=/etc/motd.tcl
-  # if [ -f $MOTD ]; then
-    # $MOTD
-  # fi
-# fi
 
 # https://github.com/nvbn/thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
