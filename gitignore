@@ -1,17 +1,36 @@
-# Compiled Python files
+# Compiled source
 *.pyc
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Folder view configuration files
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS Specific
 .DS_Store
-Desktop.ini
-
-# Thumbnail cache files
+.DS_Store?
 ._*
-Thumbs.db
-
-# Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
 # Cloud9 Directory
 .c9
