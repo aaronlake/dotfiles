@@ -20,7 +20,7 @@ else
 fi
 
 # PATH Settings
-PATH=/opt/boxen/homebrew/bin:/User/alake/bin:$PATH:/Users/alake/.cargo/bin:/usr/local/opt/go/libexec/bin
+PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin
 
 ### Antibody Configuration
 
