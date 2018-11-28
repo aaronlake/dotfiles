@@ -24,7 +24,7 @@ PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin
 
 ### Antibody Configuration
 
-# Load Antigen
+# Load Antibody
 source <(antibody init)
 ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
