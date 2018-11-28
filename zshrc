@@ -133,7 +133,7 @@ alias ls='gls --color=always'
 # https://github.com/nvbn/thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
 
-export NVM_DIR="/Users/alake/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # history management
