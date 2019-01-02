@@ -2,7 +2,7 @@
 
 My opinionated collection of dotfiles, your mileage my vary. This has been tested on MacOS, Ubuntu and CentOS. To get the most value out of these ZSH is the preferred shell, little to no customization for Bash.
 
-I recommend forking this Repo and modifying to your needs, specifically `gitconfig`.
+I recommend forking this Repo and modifying to your needs, specifically `gitconfig` and `Brewfile`.
 
 # Installation
 
