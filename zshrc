@@ -128,7 +128,14 @@ if [ -z "$SCREEN_COLORS" ] ; then
 fi
 
 alias tmux='tmux -2'
-alias ls='gls --color=always'
+
+if [[ -a /usr/local/bin/lsd ]] ; then
+  alias ls='lsd'
+  alias ll='ls -l'
+  alias l='ls -la'
+elif [[ -a /usr/local/bin/gls ]] ; then
+  alias ls='gls --color=always'
+fi
 
 # https://github.com/nvbn/thefuck
 alias fuck='$(thefuck $(fc -ln -1))'
