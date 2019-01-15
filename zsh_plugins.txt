@@ -14,7 +14,6 @@ zsh-users/zsh-history-substring-search
 psprint/zsh-cmd-architect
 psprint/zsh-navigation-tools
 mafredri/zsh-async
-sindresorhus/pure
 edkolev/tmuxline.vim
 unixorn/git-extra-commands
 Tarrasch/zsh-bd
