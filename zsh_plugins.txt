@@ -18,3 +18,4 @@ unixorn/git-extra-commands
 Tarrasch/zsh-bd
 chriskempson/base16-iterm2
 tarruda/zsh-autosuggestions
+wfxr/forgit
