@@ -28,6 +28,7 @@ brew "pv"
 brew "ssh-copy-id"
 brew "terraform"
 brew "tmux"
+brew "youtube-dl"
 brew "vim", args: ["with-override-system-vi"]
 brew "wget"
 brew "zsh"
