@@ -141,7 +141,14 @@ fi
 alias fuck='$(thefuck $(fc -ln -1))'
 
 # Initialize anyenv
-eval "$(anyenv init -)"
+if [ -d $HOME/.anyenv ] ; then
+  export PATH=$HOME/.anyenv/bin:$PATH
+  eval "$(anyenv init - zsh)"
+  for D in `ls $HOME/.anyenv/envs`
+  do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+  done
+fi
 
 # history management
 setopt inc_append_history
