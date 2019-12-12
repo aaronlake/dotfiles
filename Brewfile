@@ -37,6 +37,7 @@ brew "vim", args: ["with-override-system-vi"]
 brew "wget"
 brew "zsh"
 brew "reattach-to-user-namespace"
+brew "powerline-go"
 cask "alfred"
 cask "docker"
 cask "firefox"

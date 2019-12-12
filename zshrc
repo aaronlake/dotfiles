@@ -34,6 +34,23 @@ antibody bundle < ~/.dotfiles/zsh_plugins.txt
 if [[ $CURRENT_OS == 'OS X' ]]; then
   antibody bundle < ~/.dotfiles/zsh_plugins_osx.txt
   PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+  function powerline_precmd() {
+    PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,hg,jobs,exit,root")"
+  }
+
+  function install_powerline_precmd() {
+    for s in "${precmd_functions[@]}"; do
+      if [ "$s" = "powerline_precmd" ]; then
+        return
+      fi
+    done
+    precmd_functions+=(powerline_precmd)
+  }
+
+  if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+  fi
 elif [[ $CURRENT_OS == 'Linux' ]]; then
 
   if [[ $DISTRO == 'CentOS' ]]; then
