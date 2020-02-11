@@ -20,7 +20,8 @@ else
 fi
 
 # PATH Settings
-PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin
+GOPATH=$HOME/go/bin
+PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH
 
 ### Antibody Configuration
 
@@ -35,6 +36,18 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   antibody bundle < ~/.dotfiles/zsh_plugins_osx.txt
   PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
+elif [[ $CURRENT_OS == 'Linux' ]]; then
+
+  if [[ $DISTRO == 'CentOS' ]]; then
+    antibody bundle centos
+  fi
+elif [[ $CURRENT_OS == 'Cygwin' ]]; then
+  antibody bundle cygwin
+fi
+
+DISABLE_AUTO_UPDATE=true
+
+# Powerline Go
   function powerline_precmd() {
     PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,hg,jobs,exit,root")"
   }
@@ -51,17 +64,6 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
   fi
-elif [[ $CURRENT_OS == 'Linux' ]]; then
-
-  if [[ $DISTRO == 'CentOS' ]]; then
-    antibody bundle centos
-  fi
-elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-  antibody bundle cygwin
-fi
-
-DISABLE_AUTO_UPDATE=true
-
 
 # Ensure languages are set
 export LANG=en_US.UTF-8
