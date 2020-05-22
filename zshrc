@@ -37,12 +37,22 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 elif [[ $CURRENT_OS == 'Linux' ]]; then
-
+  if [[ -d /home/linuxbrew/.linuxbrew/bin ]]; then
+    PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  fi
+  alias ll='ls -l'
+  alias l='ls -la'
+  alias ls='ls --color=always'
   if [[ $DISTRO == 'CentOS' ]]; then
     antibody bundle centos
   fi
 elif [[ $CURRENT_OS == 'Cygwin' ]]; then
   antibody bundle cygwin
+fi
+
+if [[ -d ~/.bash-my-aws ]]; then
+  source ~/.bash-my-aws/aliases
+  source ~/.bash-my-aws/bash_completion.sh
 fi
 
 DISABLE_AUTO_UPDATE=true
@@ -169,8 +179,16 @@ if [ -d $HOME/.anyenv ] ; then
   done
 fi
 
+# Initialize goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+
 # history management
 setopt inc_append_history
 setopt share_history
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
