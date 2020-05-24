@@ -20,8 +20,6 @@ else
 fi
 
 # PATH Settings
-GOPATH=$HOME/go/bin
-PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH
 
 ### Antibody Configuration
 
@@ -180,8 +178,14 @@ if [ -d $HOME/.anyenv ] ; then
 fi
 
 # Initialize goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
+if [ -d $HOME/.goenv ] ; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export GOPATH=$HOME/go/bin
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)"
+  export GOROOT="/home/alake/go/$(goenv version | awk {'print $1'})"
+  PATH=$HOME/bin:$PATH:/usr/local/opt/go/libexec/bin:$GOPATH
+fi
 
 # history management
 setopt inc_append_history
