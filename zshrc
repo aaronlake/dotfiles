@@ -49,6 +49,8 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
 fi
 
 if [[ -d ~/.bash-my-aws ]]; then
+  autoload bashcompinit
+  bashcompinit
   source ~/.bash-my-aws/aliases
   source ~/.bash-my-aws/bash_completion.sh
 fi
