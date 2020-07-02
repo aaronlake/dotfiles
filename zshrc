@@ -23,12 +23,6 @@ fi
 
 ### Antibody Configuration
 
-# Load Antibody
-source <(antibody init)
-ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-
-antibody bundle < ~/.dotfiles/zsh_plugins.txt
-
 # OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
   antibody bundle < ~/.dotfiles/zsh_plugins_osx.txt
@@ -47,6 +41,11 @@ elif [[ $CURRENT_OS == 'Linux' ]]; then
 elif [[ $CURRENT_OS == 'Cygwin' ]]; then
   antibody bundle cygwin
 fi
+
+# Load Antibody
+source <(antibody init)
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+antibody bundle < ~/.dotfiles/zsh_plugins.txt
 
 if [[ -d ~/.bash-my-aws ]]; then
   autoload bashcompinit
