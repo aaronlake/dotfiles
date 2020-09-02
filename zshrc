@@ -58,7 +58,7 @@ DISABLE_AUTO_UPDATE=true
 
 # Powerline Go
   function powerline_precmd() {
-    PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,hg,jobs,exit,root")"
+    PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,jobs,exit,root")"
   }
 
   function install_powerline_precmd() {
