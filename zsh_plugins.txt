@@ -19,3 +19,4 @@ Tarrasch/zsh-bd
 chriskempson/base16-iterm2
 tarruda/zsh-autosuggestions
 wfxr/forgit
+MichaelAquilina/zsh-you-should-use

@@ -157,7 +157,7 @@ fi
 
 alias tmux='tmux -2'
 
-if [[ -a /usr/local/bin/lsd ]] ; then
+if [[ $(command -x lsd) ]] ; then
   alias ls='lsd'
   alias ll='ls -l'
   alias l='ls -la'
@@ -197,3 +197,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
