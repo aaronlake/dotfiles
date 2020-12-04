@@ -54,6 +54,11 @@ if [[ -d ~/.bash-my-aws ]]; then
   source ~/.bash-my-aws/bash_completion.sh
 fi
 
+if type brew &>/dev/null; then
+	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+	autoload -Uz compinit
+	compinit
+fi
 DISABLE_AUTO_UPDATE=true
 
 # Powerline Go
@@ -201,3 +206,8 @@ export PATH="$HOME/gems/bin:$PATH"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# Enable `aws` tab completion
+if [ -x /home/linuxbrew/.linuxbrew/bin/aws_completer ]; then
+  complete -C '/home/linuxbrew/.linuxbrew/bin/aws_completer' aws
+fi
