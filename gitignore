@@ -32,5 +32,20 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 
+# Garbage
+.ruby-version
+.bundle
+*.out
+.*.sw?
+.idea
+.vscode
+
 # Cloud9 Directory
 .c9
+
+# Terraform
+terragrunt.iml
+.terraform
+*.tfstate
+*.tfstate.backup
+.terragrunt-cache

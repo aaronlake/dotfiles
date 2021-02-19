@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ### OS Detection
 UNAME=`uname`
 
@@ -61,23 +68,9 @@ if type brew &>/dev/null; then
 fi
 DISABLE_AUTO_UPDATE=true
 
-# Powerline Go
-  function powerline_precmd() {
-    PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,jobs,exit,root")"
-  }
-
-  function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}"; do
-      if [ "$s" = "powerline_precmd" ]; then
-        return
-      fi
-    done
-    precmd_functions+=(powerline_precmd)
-  }
-
-  if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-  fi
+# Powerlevel-10k
+antibody bundle romkatv/powerlevel10k
+# PS1="$(powerline-go -error $? -shell zsh -modules "venv,user,host,ssh,node,docker,kube,aws,cwd,perms,git,jobs,exit,root")"
 
 # Ensure languages are set
 export LANG=en_US.UTF-8
@@ -162,10 +155,10 @@ fi
 
 alias tmux='tmux -2'
 
-if [[ $(command -x lsd) ]] ; then
-  alias ls='lsd'
-  alias ll='ls -l'
-  alias l='ls -la'
+if [[ $(type exa) ]] ; then
+  alias ls='exa --icons'
+  alias ll='exa -laagh --git --icons'
+  alias l='exa -laagh --git --icons'
 elif [[ -a /usr/local/bin/gls ]] ; then
   alias ls='gls --color=always'
 fi
@@ -211,3 +204,6 @@ export PATH="$HOME/gems/bin:$PATH"
 if [ -x /home/linuxbrew/.linuxbrew/bin/aws_completer ]; then
   complete -C '/home/linuxbrew/.linuxbrew/bin/aws_completer' aws
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
