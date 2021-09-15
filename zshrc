@@ -66,6 +66,10 @@ if type brew &>/dev/null; then
 	autoload -Uz compinit
 	compinit
 fi
+
+if [[ -d ~/.local/bin ]]; then
+  PATH=~/.local/bin:$PATH
+fi
 DISABLE_AUTO_UPDATE=true
 
 # Powerlevel-10k
@@ -207,3 +211,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# AWS CLI
+alias aws="aws --no-cli-pager"
