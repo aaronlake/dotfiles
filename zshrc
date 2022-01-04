@@ -68,7 +68,7 @@ if type brew &>/dev/null; then
 fi
 
 if [[ -d ~/.local/bin ]]; then
-  PATH=~/.local/bin:$PATH
+  PATH=$PATH:~/.local/bin
 fi
 DISABLE_AUTO_UPDATE=true
 
@@ -214,3 +214,14 @@ fi
 
 # AWS CLI
 alias aws="aws --no-cli-pager"
+alias lbu='CGO_ENABLED=0 go build -o main && zip main.zip main && aws lambda update-function-code --function-name ${PWD##*/} --zip-file fileb://main.zip && rm main main.zip'
+alias awsl='awslogs get /aws/lambda/${PWD##*/} --start="10m ago" --no-group --no-stream --timestamp --watch'
+
+# Kubectl
+source <(kubectl completion zsh)
+
+# AWS Container
+function aws() {
+  docker run -it -v `pwd`:/cfg -v ~/.aws:/home/awsuser/.aws -e AWS_PROFILE --rm richarvey/awscli:latest "$@";
+}
+
